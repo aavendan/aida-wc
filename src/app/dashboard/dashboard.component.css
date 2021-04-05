@@ -54,3 +54,17 @@ label.higher {
     font-size: 12pt;
     color: #FF0D57;
 }
+
+.img-features {
+    margin-top: 10px;
+    width: 37%;
+}
+
+.xai-p-feature {
+    font-size: 14pt;
+    margin-top: 40px;
+}
+
+.select-feature {
+    font-size: 14pt;
+}

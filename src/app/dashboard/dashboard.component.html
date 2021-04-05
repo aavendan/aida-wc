@@ -130,6 +130,12 @@
                                         <div class="ripple-container"></div>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a mat-button class="nav-link" href="#features" data-toggle="tab">
+                                        <i class="material-icons">label_important</i> Features 
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
                                 <!--li class="nav-item">
                                     <a mat-button class="nav-link" href="#settings" data-toggle="tab">
                                         <i class="material-icons">cloud</i> Server
@@ -148,7 +154,7 @@
                         <div class="tab-pane active" id="importance">
                             <table class="table table-hover">
                                 <thead class="text-warning">
-                                    <th>Order (Importance)</th>
+                                    <th>Importance</th>
                                     <th>Feature</th>
                                     <th>Influence</th>
                                     <th>Value (Points)</th>
@@ -210,6 +216,18 @@
                                 It pushes the prediction to the <label class="higher">right</label>.
                             </p>
                             <img class="img img-force" src="./assets/img/force.jpg" />
+                        </div>
+                        <div class="tab-pane" id="features">
+                            <mat-form-field class="example-full-width">
+                                <mat-label class="select-feature">Choose a feature: </mat-label>
+                                <mat-select [(ngModel)]="selectedValue" class="select-feature">
+                                    <mat-option *ngFor="let feature of featureList" (click)="select(feature.description)" [value]="feature.name">{{feature.name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+                            <p class="xai-p-feature">{{selectedDescription}}</p>
+                            <img class="img img-features" src="./assets/img/{{selectedValue}}.jpg" />
+
                         </div>
                         <!--div class="tab-pane" id="settings">
                             <table class="table">
