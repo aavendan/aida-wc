@@ -1,0 +1,56 @@
+.card-stats h3.card-title, .card-stats h4.card-title {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.card-stats h4.card-title label {
+    margin-left: 10px;
+}
+
+p.card-category {
+    text-align: left;    
+}
+
+p.card-category::first-word {
+    font-weight: bold;
+}
+
+.card-stats .card-header .card-category:not([class*=text-]) {
+    font-size: 16px;
+}
+
+.card [class*=card-header-] {
+    margin: 15px 30px;
+}
+
+.img-waterfall {
+    width: 50%;
+}
+
+.img-force {
+    width: 90%;
+}
+
+.tab-content > .active {
+    text-align: center;
+}
+
+p.text-xai {
+    text-align: left;
+    font-size: 12pt;
+
+    margin-left: 12px;
+    margin-right: 18px;
+}
+
+label.lower {
+    font-weight: bold;
+    font-size: 12pt;
+    color: #0D91FB;
+}
+
+label.higher {
+    font-weight: bold;
+    font-size: 12pt;
+    color: #FF0D57;
+}
