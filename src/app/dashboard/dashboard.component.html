@@ -18,7 +18,7 @@
 <div class="main-content">
   <div class="container-fluid">
       <div class="row justify-content-md-center">
-          <div class="col-lg-8 col-md-6 col-sm-6">
+          <div class="col-lg-4 col-md-4 col-sm-4">
               <div class="card card-stats">
                   <div class="card-header card-header-success card-header-icon">
                       <!--div class="card-icon">
@@ -27,8 +27,8 @@
                       <p class="card-category">Used Space</p>
                       <h3 class="card-title">49/50
                           <small>GB</small>
-                      </h3-->
-                      <h3 class="card-title">Suggested Question</h3>
+                      </h3>
+                      <h3 class="card-title">Suggested Question</h3-->
                       <h4 class="card-title">
                         Which is the capital of Belgium? <br><br>
                         <input type="radio" id="brussels" name="capital" value="brussels">
@@ -47,7 +47,7 @@
                   </div-->
               </div>
           </div>
-          <div class="col-lg-4 col-md-6 col-sm-6">
+          <!--div class="col-lg-4 col-md-6 col-sm-6">
               <div class="card card-stats">
                   <div class="card-header card-header-success card-header-icon">
                       <div class="card-icon">
@@ -58,13 +58,13 @@
                       <p class="card-category">Assigned: 17.3 of 50 points</p>
                       <p class="card-category">Expected: 22.532942 of 50 points</p>
                   </div>
-                  <!--div class="card-footer">
+                  <div class="card-footer">
                       <div class="stats">
                           <i class="material-icons">date_range</i> Last 24 Hours
                       </div>
-                  </div-->
+                  </div>
               </div>
-          </div>
+          </div-->
           <!--div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">
                   <div class="card-header card-header-danger card-header-icon">
@@ -152,7 +152,7 @@
                             <img class="img img-features" src="./assets/img/features_values.JPG" />
                         </div-->
                         <div class="tab-pane active" id="importance">
-                            <table class="table table-hover">
+                            <!--table class="table table-hover">
                                 <thead class="text-warning">
                                     <th>Importance</th>
                                     <th>Feature</th>
@@ -191,20 +191,20 @@
                                         <td>1.008861</td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table-->
                         </div>
                         <div class="tab-pane" id="waterfall">
-                            <p class="text-xai"> Top-5 features contributors from expected value (22.532942) to predicted value (17.29967): <br><br>  
+                            <!--p class="text-xai"> Top-5 features contributors from expected value (22.532942) to predicted value (17.29967): <br><br>  
                                 <label class="lower">Feature 13</label> has negative (<label class="lower">-5.19 points</label>)  impact, 
                                 <label class="lower">Feature 6</label> has negative (<label class="lower">-1.85 points</label>) impact, 
                                 <label class="higher">Feature 5</label> has positive (<label class="higher">1.45 points</label>) impact, 
                                 <label class="lower">Feature 7</label> has negative (<label class="lower">-1.16 points</label>) impact and 
                                 <label class="higher">Feature 10</label> has positive (<label class="higher">1.01 points</label>) impact.
                             </p>
-                            <img class="img img-waterfall" src="./assets/img/waterfall.jpg" />
+                            <img class="img img-waterfall" src="./assets/img/waterfall.jpg" /-->
                         </div>
                         <div class="tab-pane" id="force">
-                            <p class="text-xai"> Top-5 features values to obtain the predicted value: <br><br>  
+                            <!--p class="text-xai"> Top-5 features values to obtain the predicted value: <br><br>  
                                 <label class="lower">Feature 13</label>, <label class="lower">Feature 6</label> and <label class="lower">Feature 7</label> has a <label class="lower">negative</label> impact on the difficulty value. 
                                 The Feature 13 value of this question is 25.41 which is higher than average value 13. 
                                 The Feature 6 value of this question is 5.856 which is lower than average value 6. 
@@ -215,10 +215,10 @@
                                 The Feature 10 value of this question is 188.0 which is lower than average value 408. 
                                 It pushes the prediction to the <label class="higher">right</label>.
                             </p>
-                            <img class="img img-force" src="./assets/img/force.jpg" />
+                            <img class="img img-force" src="./assets/img/force.jpg" /-->
                         </div>
                         <div class="tab-pane" id="features">
-                            <mat-form-field class="example-full-width">
+                            <!--mat-form-field class="example-full-width">
                                 <mat-label class="select-feature">Choose a feature: </mat-label>
                                 <mat-select [(ngModel)]="selectedValue" class="select-feature">
                                     <mat-option *ngFor="let feature of featureList" (click)="select(feature.description)" [value]="feature.name">{{feature.name}}</mat-option>
@@ -226,7 +226,7 @@
                             </mat-form-field>
 
                             <p class="xai-p-feature">{{selectedDescription}}</p>
-                            <img class="img img-features" src="./assets/img/{{selectedValue}}.jpg" />
+                            <img class="img img-features" src="./assets/img/{{selectedValue}}.jpg" /-->
 
                         </div>
                         <!--div class="tab-pane" id="settings">
