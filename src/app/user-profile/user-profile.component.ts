@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
+  favoriteSeason: string;
+  seasons: string[] = ['Remember', 'Understand', 'Apply', 'Analyze'];
+
+  selectedUnit = 'unit1';
+  selectedTax = 'bt1'
+  
   constructor() { }
 
   ngOnInit() {
+  }
+
+  formatLabel(value: number) {
+    return value;
   }
 
 }

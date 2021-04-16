@@ -1,0 +1,26 @@
+mat-slider {
+    width: 300px;
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+mat-select {
+  background-color: #f2efef;
+  padding: 10px;
+}
+
+.preferences {
+  text-align: left;
+}
+
+h4.preferences {
+  font-weight: bold;
+}

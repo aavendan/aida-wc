@@ -3,13 +3,62 @@
       <div class="row">
           <div class="col-md-8">
               <div class="card">
-                  <div class="card-header card-header-danger">
-                      <h4 class="card-title">Edit Profile</h4>
-                      <p class="card-category">Complete your profile</p>
+                  <div class="card-header card-header-info">
+                      <h4 class="card-title">Your preferences</h4>
+                      <p class="card-category">Tailor your preferences in order to obtain a set of recommended questions.</p>
                   </div>
                   <div class="card-body">
                       <form>
-                          <div class="row">
+                          <div class="row border-top pt-4">
+                            <div class="col-md-12">
+                              <h4 class="card-title">Reading time (sec)</h4>
+                              <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="10" min="17" max="90" value='23'>
+                              </mat-slider>
+                            </div>
+                          </div>
+                          <div class="row border-top pt-4 pb-4">
+                            <div class="col-md-4">
+                              <h4 class="card-title">Bloom taxonomy</h4>
+                              <!--mat-radio-group
+                              aria-labelledby="example-radio-group-label"
+                              class="example-radio-group"
+                              [(ngModel)]="favoriteSeason">
+                              <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
+                                {{season}}
+                              </mat-radio-button>
+                              </mat-radio-group-->
+                              <mat-select [(value)]="selectedTax">
+                                <mat-option value="bt1">Remember</mat-option>
+                                <mat-option value="bt2">Understand</mat-option>
+                                <mat-option value="bt3">Apply</mat-option>
+                                <mat-option value="bt4">Analyze</mat-option>
+                                <mat-option value="bt5">Evaluate</mat-option>
+                                <mat-option value="bt6">Create</mat-option>
+                              </mat-select>
+                            </div>
+                          </div>
+                          <div class="row border-top pt-4 pb-4">
+                            <div class="col-md-4">
+                              <h4 class="card-title">Unit</h4>
+                              <mat-select [(value)]="selectedUnit">
+                                <mat-option value="unit1">Unit 1</mat-option>
+                                <mat-option value="unit2">Unit 2</mat-option>
+                                <mat-option value="unit3">Unit 3</mat-option>
+                                <mat-option value="unit4">Unit 4</mat-option>
+                                <mat-option value="unit5">Unit 5</mat-option>
+                                <mat-option value="unit6">Unit 6</mat-option>
+                                <mat-option value="unit7">Unit 7</mat-option>
+                              </mat-select>
+                            </div>
+                          </div>
+                          <div class="row border-top pt-4">
+                            <div class="col-md-12">
+                              <h4 class="card-title">Difficulty</h4>
+                              <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="10" min="1" max="100" value='45'>
+                              </mat-slider>
+                            </div>
+                          </div>
+                          <!--div class="row">
                               <div class="col-md-5">
                                 <mat-form-field class="example-full-width">
                                     <input matInput placeholder="Company (disabled)" disabled>
@@ -68,16 +117,16 @@
                                 <mat-form-field class="example-full-width">
                                    <textarea matInput placeholder="Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo."></textarea>
                                  </mat-form-field>
-                                  <!-- <div class="form-group">
+                                  <div class="form-group">
 
                                       <div class="form-group">
                                           <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
                                           <textarea class="form-control" rows="5"></textarea>
                                       </div>
-                                  </div> -->
+                                  </div>
                               </div>
-                          </div>
-                          <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update Profile</button>
+                          </div-->
+                          <button mat-raised-button type="submit" class="btn btn-success pull-right">Search</button>
                           <div class="clearfix"></div>
                       </form>
                   </div>
@@ -91,12 +140,19 @@
                       </a>
                   </div>
                   <div class="card-body">
-                      <h6 class="card-category text-gray">CEO / Co-Founder</h6>
-                      <h4 class="card-title">Alec Thompson</h4>
+                      <!--h6 class="card-category text-gray">CEO / Co-Founder</h6-->
+                      <h4 class="card-title">Nick Fury</h4>
                       <p class="card-description">
-                          Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                          Secondary school teacher
                       </p>
-                      <a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a>
+                      <h4 class="card-title preferences">Your values</h4>
+                      <ul class="preferences">
+                        <li>Reading time: 10 sec</li>
+                        <li>Bloom taxonomy: Remember and Understand</li>
+                        <li>Unit: Unit 1 and Unit 3</li>
+                        <li>Difficulty: 45/100</li>
+                      </ul>
+                      <!--a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a-->
                   </div>
               </div>
           </div>
