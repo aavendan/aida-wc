@@ -4,7 +4,7 @@
           <div class="col-md-12">
             <h4 class="card-title ">Order</h4>
             <button mat-raised-button (click)="default()"> Default </button>
-            <button mat-raised-button (click)="importance()" class="ml-2"> Importance </button>
+            <button mat-raised-button (click)="importance()" class="ml-2"> Feature Importance </button>
           </div>
           <div class="col-md-12">
               <div class="card">
@@ -16,7 +16,7 @@
           <div class="col-md-12">
               <div class="card">
                   <div class="card-header card-header-info">
-                      <h4 class="card-title ">Questions</h4>
+                      <h4 class="card-title ">Top-10 Questions</h4>
                       <p class="card-category">Top-5 features</p>
                   </div>
                   <div class="card-body">
@@ -41,7 +41,7 @@
                                 <td mat-cell *matCellDef="let row" > {{row.bloom}} </td>
                             </ng-container>
                             <ng-container matColumnDef="lines">
-                                <th mat-header-cell *matHeaderCellDef [ngClass]="{'importance2': status == 1}"> Lines </th>
+                                <th mat-header-cell *matHeaderCellDef [ngClass]="{'importance2': status == 1}"> Number of Lines </th>
                                 <td mat-cell *matCellDef="let row"> {{row.lines}} </td>
                             </ng-container>
                             <ng-container matColumnDef="answeringtime">
@@ -71,125 +71,19 @@
                             <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
 
                           </table-->
-                          <!--table class="table">
-                              <thead class=" text-primary">
-                                  <th *ngFor="let feature of features">
-                                    {{feature}}
-                                  </th>
-                              </thead>
-                              <tbody-->
-                                  <!--tr *ngFor="let olst of lst">
-                                    <td *ngFor="let k of objectKeys(olst)">
-                                        {{olst[k]}}
-                                    </td>
-                                  </tr-->
-                                  <!--tr>
-                                      <td>
-                                          1
-                                      </td>
-                                      <td>
-                                          Dakota Rice
-                                      </td>
-                                      <td>
-                                          Niger
-                                      </td>
-                                      <td>
-                                          Oud-Turnhout
-                                      </td>
-                                      <td class="text-primary">
-                                          $36,738
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          2
-                                      </td>
-                                      <td>
-                                          Minerva Hooper
-                                      </td>
-                                      <td>
-                                          Curaçao
-                                      </td>
-                                      <td>
-                                          Sinaai-Waas
-                                      </td>
-                                      <td class="text-primary">
-                                          $23,789
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          3
-                                      </td>
-                                      <td>
-                                          Sage Rodriguez
-                                      </td>
-                                      <td>
-                                          Netherlands
-                                      </td>
-                                      <td>
-                                          Baileux
-                                      </td>
-                                      <td class="text-primary">
-                                          $56,142
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          4
-                                      </td>
-                                      <td>
-                                          Philip Chaney
-                                      </td>
-                                      <td>
-                                          Korea, South
-                                      </td>
-                                      <td>
-                                          Overland Park
-                                      </td>
-                                      <td class="text-primary">
-                                          $38,735
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          5
-                                      </td>
-                                      <td>
-                                          Doris Greene
-                                      </td>
-                                      <td>
-                                          Malawi
-                                      </td>
-                                      <td>
-                                          Feldkirchen in Kärnten
-                                      </td>
-                                      <td class="text-primary">
-                                          $63,542
-                                      </td>
-                                  </tr>
-                                  <tr>
-                                      <td>
-                                          6
-                                      </td>
-                                      <td>
-                                          Mason Porter
-                                      </td>
-                                      <td>
-                                          Chile
-                                      </td>
-                                      <td>
-                                          Gloucester
-                                      </td>
-                                      <td class="text-primary">
-                                          $78,615
-                                      </td>
-                                  </tr-->
-                              <!--/tbody>
-                          </table-->
                       </div>
                   </div>
               </div>
+          </div>
+          <div class="col-12" *ngIf="status == 1">
+            <div class="card">
+                <div class="card-header card-header-info">
+                    <h4 class="card-title ">Overall questions</h4>
+                    <p class="card-category">Top-5 features</p>
+                </div>
+                <div class="card-body  text-center">
+                    <img class="img img-features align-self-center" src="./assets/img/beeswarm2.jpg" />
+                </div>
           </div>
           <!--div class="col-md-12">
               <div class="card card-plain">
