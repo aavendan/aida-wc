@@ -1,0 +1,25 @@
+table {
+    width: 100%;
+}
+
+th.mat-header-cell {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+td[role='gridcell'], th[role='columnheader'] {
+    text-align: center !important;
+}
+
+.make-gold {
+    background-color: gold
+}
+
+
+.importance0 { background-color:  #FF0052; color: white;}
+.importance1 { background-color:  #ED0077; color: white;}
+.importance2 { background-color:  #BB00A0; color: white;}
+.importance3 { background-color:  #9C23AD; color: white;}
+.importance4 { background-color:  #6B55D6; color: white;}
+.importance5 { background-color:  #0070ED; color: white;}
+
