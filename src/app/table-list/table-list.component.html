@@ -78,12 +78,26 @@
           <div class="col-12" *ngIf="status == 1">
             <div class="card">
                 <div class="card-header card-header-info">
+                    <h4 class="card-title ">Feature importance</h4>
+                    <p class="card-category">Top-5 features</p>
+                </div>
+                <div class="card-body  text-center">
+                    <p class="text-left">Each feature with its absolute mean value. </p>
+                    <img class="img img-features align-self-center" src="./assets/img/plots2.jpg" />
+                </div>
+            </div>
+          </div>
+          <div class="col-12" *ngIf="status == 1">
+            <div class="card">
+                <div class="card-header card-header-info">
                     <h4 class="card-title ">Overall questions</h4>
                     <p class="card-category">Top-5 features</p>
                 </div>
                 <div class="card-body  text-center">
+                    <p class="text-left">Each question is represented by a single dot on each feature fow. </p>
                     <img class="img img-features align-self-center" src="./assets/img/beeswarm2.jpg" />
                 </div>
+            </div>
           </div>
           <!--div class="col-md-12">
               <div class="card card-plain">
