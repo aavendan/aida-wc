@@ -19,7 +19,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatRadioModule} from '@angular/material/radio';
-import { MatTableModule } from '@angular/material/table'  
+import { MatTableModule } from '@angular/material/table';  
 
 @NgModule({
   imports: [

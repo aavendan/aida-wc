@@ -104,21 +104,16 @@
                 <div class="card-header card-header-tabs card-header-info">
                     <div class="nav-tabs-navigation">
                         <div class="nav-tabs-wrapper">
-                            <span class="nav-tabs-title"><!-- TITLE -->Why did I get this question?</span>
+                            <span class="nav-tabs-title"><!-- TITLE --></span>
                             <ul class="nav nav-tabs" data-tabs="tabs">
-                                <!--li class="nav-item">
-                                    <a mat-button class="nav-link active" href="#features" data-toggle="tab">
-                                        <i class="material-icons">featured_play_list</i> Features
-                                        <div class="ripple-container"></div>
-                                    </a>
-                                </li-->
+                                
                                 <li class="nav-item">
                                     <a mat-button class="nav-link active" href="#features" data-toggle="tab">
                                         <i class="material-icons">label_important</i> Features 
                                         <div class="ripple-container"></div>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <!--li class="nav-item">
                                     <a mat-button class="nav-link " href="#importance" data-toggle="tab">
                                         <i class="material-icons">waterfall_chart</i> Importance
                                         <div class="ripple-container"></div>
@@ -135,24 +130,66 @@
                                         <i class="material-icons">bubble_chart</i> Force
                                         <div class="ripple-container"></div>
                                     </a>
-                                </li>
-                                
-                                <!--li class="nav-item">
-                                    <a mat-button class="nav-link" href="#settings" data-toggle="tab">
-                                        <i class="material-icons">cloud</i> Server
-                                        <div class="ripple-container"></div>
-                                    </a>
                                 </li-->
+
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="card-body">
                     <div class="tab-content">
-                        <!--div class="tab-pane" id="features">
-                            <img class="img img-features" src="./assets/img/features_values.JPG" />
-                        </div-->
-                        <div class="tab-pane active" id="importance">
+                        <div class="tab-pane active" id="features">
+                            <p>
+                                Click on each row to get more information about feature question value.
+                            </p>
+                            <table mat-table [dataSource]="features" multiTemplateDataRows>
+                                
+                                <ng-container matColumnDef="feature">
+                                    <th mat-header-cell *matHeaderCellDef > Feature </th>
+                                    <td mat-cell *matCellDef="let row"> {{row.feature}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="description">
+                                    <th mat-header-cell *matHeaderCellDef > Description </th>
+                                    <td mat-cell *matCellDef="let row"> {{row.description}} </td>
+                                </ng-container>
+
+                                <!--ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
+                                    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+                                    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
+                                </ng-container-->
+
+                                <ng-container matColumnDef="expandedDetail">
+                                    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
+                                      <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                                        <p class="description-container">
+                                            Considering all questions, the average value on {{element.feature}} is {{element.mean}}.
+                                            Particularly, this question on {{element.feature}} is {{element.value}} .
+                                        </p><br>
+                                        <p class="description-container">
+                                            <img class="img" src="./assets/img/features/f{{element.id}}.jpg">
+                                        </p>
+                                        <!--div class="example-element-description">
+                                            {{element.mean}} - {{element.value}} - {{element.effect}}
+                                        </div>
+                                        <div>
+                                             
+                                        </div-->
+                                      </div>
+                                    </td>
+                                </ng-container>
+
+                                <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+                                <tr mat-row *matRowDef="let element; columns: columnsToDisplay;"
+                                    class="example-element-row"
+                                    [class.example-expanded-row]="expandedElement === element"
+                                    (click)="expandedElement = expandedElement === element ? null : element">
+                                </tr>
+                                <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+                               
+                            </table>
+
+                        </div>
+                        <div class="tab-pane" id="importance">
                             <!--table class="table table-hover">
                                 <thead class="text-warning">
                                     <th>Importance</th>
