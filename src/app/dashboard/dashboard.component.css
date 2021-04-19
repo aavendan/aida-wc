@@ -99,6 +99,10 @@ table {
     padding-bottom: 5%;
 }
 
+.image-prediction {
+    width: 75%;
+}
+
 tr.example-detail-row {
     height: 0;
 }
