@@ -18,11 +18,12 @@ export class DashboardComponent implements OnInit {
 
   columnsToDisplay = ['feature', 'description'];
   features: object[] = [
-    { 'id':'0','feature':'Reading time (sec)', 'description':'Average seconds on reading the question\' text', 'mean': '38.57 secs', 'value': '36 secs' , 'effect': 0.006},
-    { 'id':'1','feature':'Unit', 'description':'Source from which was generated the question', 'mean': 'Unit 3 (3.88)', 'value': 'Unit 5 (4.00)' , 'effect': 0.046},
+    { 'id':'4','feature':'Answering time (sec)', 'description':'Average seconds on answering the question\' text', 'mean': '1119.867 secs (4.00)', 'value': '0 secs (5.00) ' , 'effect': -0.6959488002136133},
     { 'id':'2','feature':'Bloom Taxonomy', 'description':'Levels within the cognitive domain ', 'mean': 'Understand (3.19)', 'value': 'Remember (5.00)' , 'effect': 0.189},
+    { 'id':'1','feature':'Unit', 'description':'Source from which was generated the question', 'mean': 'Unit 3 (3.88)', 'value': 'Unit 5 (4.00)' , 'effect': 0.046},
     { 'id':'3','feature':'Number of Lines', 'description':'Lines of text in the question', 'mean': '8 lines (0.79)', 'value': '2 lines (0.00)' , 'effect': 0.0596},
-    { 'id':'4','feature':'Answering time (sec)', 'description':'Average seconds on answering the question\' text', 'mean': '1119.867 secs (4.00)', 'value': '0 secs (5.00) ' , 'effect': -0.6959488002136133}
+    { 'id':'0','feature':'Reading time (sec)', 'description':'Average seconds on reading the question\' text', 'mean': '38.57 secs', 'value': '36 secs' , 'effect': 0.006},
+    { 'id':'10','feature':'Difficulty', 'description':'Hardness to accomplish this question', 'mean': '40.46', 'value': '60' , 'effect': 0.084}
   ];
 
   featureList: object[] = [

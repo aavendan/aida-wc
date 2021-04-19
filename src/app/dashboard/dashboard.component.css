@@ -80,6 +80,10 @@ td[role='gridcell'], th[role='columnheader'] {
     text-align: center !important;
 }
 
+tr.mat-row {
+    cursor: pointer;
+}
+
 .description-container {
     margin-left: auto;
     margin-right: auto;
@@ -90,12 +94,17 @@ table {
     width: 100%;
 }
 
+.explanation-text {
+    margin-left: 2%;
+    padding-bottom: 5%;
+}
+
 tr.example-detail-row {
     height: 0;
 }
 
 tr.example-element-row:not(.example-expanded-row):hover {
-    background: whitesmoke;
+    background: #e0fbff;
 }
 
 tr.example-element-row:not(.example-expanded-row):active {
