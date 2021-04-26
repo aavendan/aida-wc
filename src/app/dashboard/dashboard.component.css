@@ -88,6 +88,7 @@ tr.mat-row {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
+    padding-top: 3%;
 }
 
 table {
@@ -148,3 +149,23 @@ tr.example-element-row:not(.example-expanded-row):active {
     opacity: 0.5;
 }
 
+.table-similarities {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-teable {
+    width: 30%;
+    font-weight: bold;
+}
+
+.equal {
+    background-color: #cffcd0;
+    width: 30%;
+}
+
+.different {
+    background-color: #ffb5b5;
+    width: 30%;
+}

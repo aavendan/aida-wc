@@ -1,6 +1,59 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import * as Chartist from 'chartist';
 import {animate, state, style, transition, trigger} from '@angular/animations';
+
+import {
+  ChartComponent,
+  ApexAxisChartSeries,
+  ApexDataLabels,
+  ApexChart,
+  ApexXAxis,
+  ApexTitleSubtitle,
+  ApexStroke,
+  ApexPlotOptions,
+  ApexLegend,
+  ApexMarkers,
+  ApexFill,
+  ApexYAxis,
+  ApexTooltip,
+  ApexAnnotations,
+  ApexGrid
+} from "ng-apexcharts";
+
+export type ChartOptionsShapImportance = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  dataLabels: ApexDataLabels;
+  plotOptions: ApexPlotOptions;
+  xaxis: ApexXAxis;
+  title: ApexTitleSubtitle;
+  stroke: ApexStroke;
+  colors: string[];
+  legend: ApexLegend;
+};
+
+export type chartOptionsLines = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  dataLabels: ApexDataLabels;
+  plotOptions: ApexPlotOptions;
+  xaxis: ApexXAxis;
+  title: ApexTitleSubtitle;
+  stroke: ApexStroke;
+  colors: string[];
+  legend: ApexLegend;
+};
+
+export type ChartOptionsReadingTime = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  markers: ApexMarkers;
+  stroke: ApexStroke;
+  dataLabels: ApexDataLabels;
+  xaxis: ApexXAxis;
+  title: ApexTitleSubtitle;
+  annotations: ApexAnnotations;
+};
 
 @Component({
   selector: 'app-dashboard',
@@ -17,6 +70,8 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 export class DashboardComponent implements OnInit {
 
   columnsToDisplay = ['feature', 'description'];
+  columnsToDisplayComparison = ['feature','mine', 'question'];
+
   features: object[] = [
     { 'id':'4','feature':'Answering time (sec)', 'description':'Average seconds on answering the question', 'mean': '1119.867 secs (4.00)', 'value': '0 secs (5.00) ' , 'effect': -0.6959488002136133},
     { 'id':'2','feature':'Bloom Taxonomy', 'description':'Levels within the cognitive domain ', 'mean': 'Understand (3.19)', 'value': 'Remember (5.00)' , 'effect': 0.189},
@@ -41,10 +96,199 @@ export class DashboardComponent implements OnInit {
   {'name':'Feature 12','description':'The Feature 12 value of this question is 370.31 which is higher than average value 356.67. So it pushes the prediction to the left.'},
   {'name':'Feature 13','description':'The Feature 13 value of this question is 25.41 which is higher than average value 12.65. So it pushes the prediction to the left.'}];
 
+
+  featuresSimilarities: object[] = [
+    {"id":1, "feature":"Bloom Taxonomy", "mine":"Remember", "question":"Remember", "class1":  "equal", "class2":  "equal"},
+    {"id":2, "feature":"Reading time", "mine": "24 to 58 of 100", "question":"36 of 100", "class1":  "equal", "class2":  "equal"},
+    {"id":3, "feature":"Unit", "mine":"Unit 1", "question":"Unit 1","class1":  "equal", "class2":  "equal"},
+    {"id":4, "feature":"Answering Time", "mine":"32 to 45 of 100", "question":"62 of 100", "class1":  "equal", "class2":"different"},
+    {"id":5, "feature":"Number of lines", "mine":"1 line", "question":"2 lines", "class1":  "equal", "class2":"different"},
+    {"id":6, "feature":"Difficulty", "mine":"12 to 33 of 100", "question":"50 of 100", "class1":  "equal", "class2":"different"}
+  ]
+
+  @ViewChild("chart") chart: ChartComponent;
+  public chartOptionsShapImportance: Partial<ChartOptionsShapImportance>;
+
+  @ViewChild("chart") chart2: ChartComponent;
+  public chartOptionsLines: Partial<chartOptionsLines>;
+
+  @ViewChild("chart") chart3: ChartComponent;
+  public chartOptionsReadingTime: Partial<ChartOptionsReadingTime>;
+
   selectedValue: string = "Feature 1";
   selectedDescription: string = this.featureList[0]['description'];
 
-  constructor() { }
+  constructor() { 
+    this.chartOptionsShapImportance = {
+      series: [
+        {
+          name: "count",
+          data: [178,14,7,1]
+        }
+      ],
+      title: {
+        text: "Bloom Taxonomy",
+        align: "center"
+      },
+      stroke: {
+        curve: "straight", 
+        colors: ['#000000'],
+        width: 1
+      },
+      chart: {
+        type: "bar",
+        height: 450,
+        toolbar: {
+          show: false
+        },
+      },
+      colors: ["#cffcd0", "#ffffff","#ffffff", "#ffffff"],
+      plotOptions: {
+        bar: {
+          distributed: true,
+          dataLabels: {
+            position: "top"
+          }
+        }
+      },
+      legend: {
+        show: false
+      },  
+      dataLabels: {
+        enabled: true,
+        offsetY: -30,
+        style: {
+          fontSize: "12px",
+          colors: ["#000"]
+        }
+      },
+      xaxis: {
+        categories: ['Remember',
+        'Understand',
+        'Apply',
+        'Analyze']
+      }
+    };
+
+    this.chartOptionsLines = {
+      series: [
+        {
+          name: "count",
+          data: [26, 52, 62, 10, 35, 1, 5, 9]
+        }
+      ],
+      title: {
+        text: "Number of lines",
+        align: "center"
+      },
+      stroke: {
+        curve: "straight", 
+        colors: ['#000000'],
+        width: 1
+      },
+      chart: {
+        type: "bar",
+        height: 450,
+        toolbar: {
+          show: false
+        },
+      },
+      colors: ["#cffcd0", "#ffb5b5","#ffffff", "#ffffff","#ffffff","#ffffff", "#ffffff", "#ffffff"],
+      plotOptions: {
+        bar: {
+          distributed: true,
+          dataLabels: {
+            position: "top"
+          }
+        }
+      },
+      legend: {
+        show: false
+      },  
+      dataLabels: {
+        enabled: true,
+        offsetY: -30,
+        style: {
+          fontSize: "12px",
+          colors: ["#000"]
+        }
+      },
+      xaxis: {
+        categories: ['1 line',
+        '2 lines',
+        '3 lines',
+        '4 lines',
+        '5 lines',
+        '6 lines',
+        '7 lines',
+        '8 lines']
+      }
+    };
+
+    this.chartOptionsReadingTime = {
+      series: [
+        {
+          name: "Reading time (sec)",
+          data: [ 8, 23, 41, 31, 48, 25, 17,  4,  2,  1]
+        }
+      ],
+      chart: {
+        type: "line",
+        height: 350,
+        toolbar: {
+          show: false
+        },
+        zoom: {
+          enabled: false,
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      title: {
+        text: "Reading time",
+        align: "center"
+      },
+      xaxis: {
+        categories: ['24.0', '29.5', '35.0', '40.5', '46.0', '51.5', '57.0', '62.5', '68.0', '73.5', '79.0'],
+      },
+      annotations: {
+        xaxis: [
+          {
+            x: 0.0, 
+            x2: 400.0,
+            fillColor: '#B3F7CA',
+            label: {
+              text: 'My Settings'
+            }
+          },
+          {
+            x: 140.0, 
+            x2: 145.0,
+            strokeDashArray: 2,
+            fillColor: '#000000',
+            label: {
+              text: "Reading time' Question"
+            }
+          }
+        ]
+      },
+      markers: {
+        hover: {
+          sizeOffset: 4
+        }
+      }
+    };
+
+    /*stroke: {
+        curve: "stepline"
+      },*/
+
+   
+
+  }
+
+
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;

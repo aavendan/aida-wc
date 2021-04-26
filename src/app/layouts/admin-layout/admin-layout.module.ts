@@ -19,7 +19,17 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatRadioModule} from '@angular/material/radio';
-import { MatTableModule } from '@angular/material/table';  
+import { MatTableModule } from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSidenavModule} from '@angular/material/sidenav';  
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
+
+import {NgApexchartsModule} from 'ng-apexcharts';
 
 @NgModule({
   imports: [
@@ -27,6 +37,7 @@ import { MatTableModule } from '@angular/material/table';
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
     ReactiveFormsModule,
+    NgApexchartsModule,
     MatButtonModule,
     MatRippleModule,
     MatFormFieldModule,
@@ -35,7 +46,14 @@ import { MatTableModule } from '@angular/material/table';
     MatTooltipModule,
     MatSliderModule,
     MatRadioModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatSidenavModule,
+    MatExpansionModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatSlideToggleModule,
+    NgxSliderModule
   ],
   declarations: [
     DashboardComponent,

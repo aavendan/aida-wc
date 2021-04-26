@@ -11,15 +11,113 @@ td[role='gridcell'], th[role='columnheader'] {
     text-align: center !important;
 }
 
+tr.example-detail-row {
+    height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+}
+  
+tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+}
+
+.example-element-row td {
+    border-bottom-width: 0;
+}
+
+.example-element-detail {
+    overflow: hidden;
+    display: flex;
+}
+
+.example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    padding: 8px;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+}
+
+.example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+}
+
+.example-element-description {
+    padding: 16px;
+}
+
+.example-element-description-attribution {
+    opacity: 0.5;
+}
+
+.example-element-detail{
+    flex-direction: column;
+}
+
+
+.description-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+tr.mat-row {
+    cursor: pointer;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+    background: #e0fbff;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+}
+
+
 .make-gold {
     background-color: gold
 }
 
+.importance4 { background-color:  #FEF0D9; color: black;}
+.importance3 { background-color:  #FDCC8A; color: black;}
+.importance2 { background-color:  #FC8D59; color: black;}
+.importance1 { background-color:  #E34A33; color: black;}
+.importance0 { background-color:  #B30000; color: black;}
 
-.importance0 { background-color:  #FF0052; color: white;}
-.importance1 { background-color:  #ED0077; color: white;}
-.importance2 { background-color:  #BB00A0; color: white;}
-.importance3 { background-color:  #9C23AD; color: white;}
-.importance4 { background-color:  #6B55D6; color: white;}
-.importance5 { background-color:  #0070ED; color: white;}
+.label-scheme {
+    font-size: 13pt;
+    font-weight: bold;
+}
 
+.filters-panel {
+    width: 30%;
+    padding: 2%;
+}
+
+.selector {
+    /*
+        
+        font-size: 1.2rem;
+    */
+    /*
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+    
+    background-color: #F0F0F0;
+    padding: 5%;
+    */
+    font-size: 14px;
+}
+
+.ngx-slider {
+    margin-left: 10px;
+    width: 100%;
+}
+
+mat-sidenav-container {
+    background: transparent;
+}

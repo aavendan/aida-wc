@@ -9,15 +9,79 @@
                   </div>
                   <div class="card-body">
                       <form>
-                          <div class="row border-top pt-4">
-                            <div class="col-md-12">
+                          <div class="row border-top pt-4 pb-4">
+                            <div class="col-md-6 border-right">
                               <h4 class="card-title">Reading time (sec)</h4>
-                              <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="10" min="17" max="90" value='23'>
-                              </mat-slider>
+                              <!--mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="10" min="17" max="90" value='23'>
+                              </mat-slider-->
+                              <!--div class="element-30"-->
+                              <ngx-slider 
+                                  [(value)]="minValueRT" 
+                                  [(highValue)]="maxValueRT" 
+                                  [options]="optionsRT">
+                              </ngx-slider>
+                              <!--/div-->
+                              
+                            </div>
+                            <div class="col-md-6 border-right">
+                              <h4 class="card-title">Answering time (sec)</h4>
+                              <!--mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="10" min="17" max="90" value='23'>
+                              </mat-slider-->
+                              <!--div class="element-30"-->
+                              <ngx-slider 
+                                  [(value)]="minValueAT" 
+                                  [(highValue)]="maxValueAT" 
+                                  [options]="optionsAT">
+                              </ngx-slider>
+                              <!--/div-->
+                              
                             </div>
                           </div>
                           <div class="row border-top pt-4 pb-4">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
+                              <h4 class="card-title">Difficulty</h4>
+                              <!--mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="10" min="1" max="100" value='45'>
+                              </mat-slider-->
+                              <!--div class="element-30"-->
+                              <ngx-slider 
+                                    [(value)]="minValueDifficulty" 
+                                    [(highValue)]="maxValueDifficulty" 
+                                    [options]="optionsDifficulty">
+                              </ngx-slider>
+                              <!--/div-->
+                            </div>
+                            <div class="col-md-6 border-right">
+                              <h4 class="card-title">Number of lines</h4>
+                              <mat-select [(value)]="selectedLines">
+                                <mat-option value="Lines 1">Lines 1</mat-option>
+                                <mat-option value="Lines 2">Lines 2</mat-option>
+                                <mat-option value="Lines 3">Lines 3</mat-option>
+                                <mat-option value="Lines 4">Lines 4</mat-option>
+                                <mat-option value="Lines 5">Lines 5</mat-option>
+                                <mat-option value="Lines 6">Lines 6</mat-option>
+                                <mat-option value="Lines 7">Lines 7</mat-option>
+                                <mat-option value="Lines 8">Lines 8</mat-option>
+                                <mat-option value="Lines 9">Lines 9</mat-option>
+                              </mat-select>
+                            </div>
+                          </div>
+                          <!--div class="row border-top pt-4 pb-4">
+                            
+                          </div-->
+                          <div class="row border-top pt-4 pb-4">
+                            <div class="col-md-6 border-right">
+                              <h4 class="card-title">Unit</h4>
+                              <mat-select [(value)]="selectedUnit">
+                                <mat-option value="Unit 1">Unit 1</mat-option>
+                                <mat-option value="Unit 2">Unit 2</mat-option>
+                                <mat-option value="Unit 3">Unit 3</mat-option>
+                                <mat-option value="Unit 4">Unit 4</mat-option>
+                                <mat-option value="Unit 5">Unit 5</mat-option>
+                                <mat-option value="Unit 6">Unit 6</mat-option>
+                                <mat-option value="Unit 7">Unit 7</mat-option>
+                              </mat-select>
+                            </div>
+                            <div class="col-md-6">
                               <h4 class="card-title">Bloom taxonomy</h4>
                               <!--mat-radio-group
                               aria-labelledby="example-radio-group-label"
@@ -28,36 +92,39 @@
                               </mat-radio-button>
                               </mat-radio-group-->
                               <mat-select [(value)]="selectedTax">
-                                <mat-option value="bt1">Remember</mat-option>
-                                <mat-option value="bt2">Understand</mat-option>
-                                <mat-option value="bt3">Apply</mat-option>
-                                <mat-option value="bt4">Analyze</mat-option>
-                                <mat-option value="bt5">Evaluate</mat-option>
-                                <mat-option value="bt6">Create</mat-option>
+                                <mat-option value="Remember">Remember</mat-option>
+                                <mat-option value="Understand">Understand</mat-option>
+                                <mat-option value="Apply">Apply</mat-option>
+                                <mat-option value="Analyze">Analyze</mat-option>
+                                <mat-option value="Evaluate">Evaluate</mat-option>
+                                <mat-option value="Create">Create</mat-option>
                               </mat-select>
                             </div>
                           </div>
+                          <!--div class="row border-top pt-4">
+                            
+                          </div-->
                           <div class="row border-top pt-4 pb-4">
-                            <div class="col-md-4">
-                              <h4 class="card-title">Unit</h4>
-                              <mat-select [(value)]="selectedUnit">
-                                <mat-option value="unit1">Unit 1</mat-option>
-                                <mat-option value="unit2">Unit 2</mat-option>
-                                <mat-option value="unit3">Unit 3</mat-option>
-                                <mat-option value="unit4">Unit 4</mat-option>
-                                <mat-option value="unit5">Unit 5</mat-option>
-                                <mat-option value="unit6">Unit 6</mat-option>
-                                <mat-option value="unit7">Unit 7</mat-option>
+                            <div class="col-md-6 border-right">
+                              <h4 class="card-title">Class</h4>
+                              <mat-select [(value)]="selectedClass">
+                                <mat-option value="345">345</mat-option>
+                                <mat-option value="201">201</mat-option>
+                                <mat-option value="123">123</mat-option>
+                              </mat-select>
+                            </div>
+                            <div class="col-md-6">
+                              <h4 class="card-title">Subject</h4>
+                              <mat-select [(value)]="selectedSubject">
+                                <mat-option value="Geography">Geography</mat-option>
+                                <mat-option value="Chemestry">Chemestry</mat-option>
+                                <mat-option value="Physics">Physics</mat-option>
                               </mat-select>
                             </div>
                           </div>
-                          <div class="row border-top pt-4">
-                            <div class="col-md-12">
-                              <h4 class="card-title">Difficulty</h4>
-                              <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="10" min="1" max="100" value='45'>
-                              </mat-slider>
-                            </div>
-                          </div>
+                          <!--div class="row border-top pt-4 pb-4">
+                            
+                          </div-->
                           <!--div class="row">
                               <div class="col-md-5">
                                 <mat-form-field class="example-full-width">
@@ -147,10 +214,14 @@
                       </p>
                       <h4 class="card-title preferences">Favorite features' question</h4>
                       <ul class="preferences">
-                        <li>Reading time: 10 sec</li>
-                        <li>Bloom taxonomy: Remember</li>
-                        <li>Unit: Unit 3</li>
-                        <li>Difficulty: 45/100</li>
+                        <li>Reading time: {{minValueRT}} - {{maxValueRT}} (sec)</li>
+                        <li>Answering time: {{minValueAT}} - {{maxValueAT}} (sec)</li>
+                        <li>Difficulty: {{minValueDifficulty}} to {{maxValueDifficulty}} of 100</li>
+                        <li>Lines: {{selectedLines}}</li>
+                        <li>Unit: {{selectedUnit}}</li>
+                        <li>Bloom taxonomy: {{selectedTax}}</li>
+                        <li>Class: {{selectedClass}}</li>
+                        <li>Subject: {{selectedSubject}}</li>
                       </ul>
                       <!--a href="javascript:void(0)" class="btn btn-danger btn-round">Follow</a-->
                   </div>

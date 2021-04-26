@@ -113,13 +113,13 @@
                                         <div class="ripple-container"></div>
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                <!--li class="nav-item">
                                     <a mat-button class="nav-link" href="#explanation1" data-toggle="tab">
-                                        <i class="material-icons">label_important</i> Explanation 1 
+                                        <i class="material-icons">label_important</i> Lime 
                                         <div class="ripple-container"></div>
                                     </a>
                                 </li>
-                                <!--li class="nav-item">
+                                <li class="nav-item">
                                     <a mat-button class="nav-link " href="#importance" data-toggle="tab">
                                         <i class="material-icons">waterfall_chart</i> Importance
                                         <div class="ripple-container"></div>
@@ -145,24 +145,88 @@
                 <div class="card-body">
                     <div class="tab-content">
                         <div class="tab-pane active" id="features">
-                            <p>
-                                Click on each row to get more information about feature question value.
-                            </p>
-                            <table mat-table [dataSource]="features" multiTemplateDataRows>
-                                
+                            
+                            <table mat-table [dataSource]="featuresSimilarities" class="table-similarities" multiTemplateDataRows>
                                 <ng-container matColumnDef="feature">
                                     <th mat-header-cell *matHeaderCellDef > Feature </th>
+                                    <td mat-cell *matCellDef="let row" class="header-teable"> {{row.feature}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="mine">
+                                    <th mat-header-cell *matHeaderCellDef > My settings </th>
+                                    <td mat-cell *matCellDef="let row" class="{{row.class1}}"> {{row.mine}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="question">
+                                    <th mat-header-cell *matHeaderCellDef > Current features' Question  </th>
+                                    <td mat-cell *matCellDef="let row" class="{{row.class2}}">{{row.question}} </td>
+                                </ng-container>
+                                <ng-container matColumnDef="expandedDetail">
+                                    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayComparison.length">
+                                      <div class="example-element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                                        <p class="description-container" *ngIf="element.id == 1">
+                                            <apx-chart
+                                                [series]="chartOptionsShapImportance.series"
+                                                [title]="chartOptionsShapImportance.title"
+                                                [chart]="chartOptionsShapImportance.chart"
+                                                [colors]="chartOptionsShapImportance.colors"
+                                                [legend]="chartOptionsShapImportance.legend"
+                                                [dataLabels]="chartOptionsShapImportance.dataLabels"
+                                                [plotOptions]="chartOptionsShapImportance.plotOptions"
+                                                [stroke]="chartOptionsShapImportance.stroke"
+                                                [xaxis]="chartOptionsShapImportance.xaxis"
+                                            ></apx-chart>
+                                        </p>
+                                        <p class="description-container" *ngIf="element.id == 2">
+                                            <apx-chart
+                                                [series]="chartOptionsReadingTime.series"
+                                                [chart]="chartOptionsReadingTime.chart"
+                                                [markers]="chartOptionsReadingTime.markers"
+                                                [annotations]="chartOptionsReadingTime.annotations"
+                                                [xaxis]="chartOptionsReadingTime.xaxis"
+                                                [stroke]="chartOptionsReadingTime.stroke"
+                                                [dataLabels]="chartOptionsReadingTime.dataLabels"
+                                                [title]="chartOptionsReadingTime.title"
+                                            ></apx-chart>
+                                        </p>
+                                        <p class="description-container" *ngIf="element.id == 5">
+                                            <apx-chart
+                                                [series]="chartOptionsLines.series"
+                                                [title]="chartOptionsLines.title"
+                                                [chart]="chartOptionsLines.chart"
+                                                [colors]="chartOptionsLines.colors"
+                                                [legend]="chartOptionsLines.legend"
+                                                [dataLabels]="chartOptionsLines.dataLabels"
+                                                [plotOptions]="chartOptionsLines.plotOptions"
+                                                [stroke]="chartOptionsLines.stroke"
+                                                [xaxis]="chartOptionsLines.xaxis"
+                                            ></apx-chart>
+                                        </p>
+                                      </div>
+                                    </td>
+                                </ng-container>
+                                <tr mat-header-row *matHeaderRowDef="columnsToDisplayComparison"></tr>
+                                <!--class="{{element.class}}"-->
+                                <tr mat-row *matRowDef="let element; columns: columnsToDisplayComparison;"
+                                    
+                                    [class.example-expanded-row]="expandedElement === element"
+                                    (click)="expandedElement = expandedElement === element ? null : element">
+                                </tr>
+                                <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+                            </table>
+                            <!--p>
+                                Click on each row to get more information about feature question value.
+                            </p-->
+                            <!--table mat-table [dataSource]="features" multiTemplateDataRows>
+                                
+                                <ng-container matColumnDef="feature">
+                                    <th mat-header-cell *matHeaderCellDef > Name </th>
                                     <td mat-cell *matCellDef="let row"> {{row.feature}} </td>
                                 </ng-container>
                                 <ng-container matColumnDef="description">
                                     <th mat-header-cell *matHeaderCellDef > Description </th>
                                     <td mat-cell *matCellDef="let row"> {{row.description}} </td>
                                 </ng-container>
-
-                                <!--ng-container matColumnDef="{{column}}" *ngFor="let column of columnsToDisplay">
-                                    <th mat-header-cell *matHeaderCellDef> {{column}} </th>
-                                    <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
-                                </ng-container-->
+                                
+                                
 
                                 <ng-container matColumnDef="expandedDetail">
                                     <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplay.length">
@@ -174,12 +238,7 @@
                                         <p class="description-container">
                                             <img class="img" src="./assets/img/features/f{{element.id}}.jpg">
                                         </p>
-                                        <!--div class="example-element-description">
-                                            {{element.mean}} - {{element.value}} - {{element.effect}}
-                                        </div>
-                                        <div>
-                                             
-                                        </div-->
+                                       
                                       </div>
                                     </td>
                                 </ng-container>
@@ -192,11 +251,11 @@
                                 </tr>
                                 <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
                                
-                            </table>
+                            </table-->
 
                         </div>
                         <div class="tab-pane" id="explanation1">
-                            <div class="text-left explanation-text">
+                            <!--div class="text-left explanation-text">
                                 This question has been recommended to be Accepted due to the following reasons:
                                 <ul>
                                     <li>This question has a Answering time (sec) value of 0 <= 0.00. It is more likely to be Discard. </li>
@@ -206,7 +265,7 @@
                                     <li>This question has a Number of lines value equal to 2 lines. It is more likely to be Accept.</li>
                                 </ul>
                             </div>
-                            <img class="img image-prediction" src="./assets/img/features/lime.JPG">
+                            <img class="img image-prediction" src="./assets/img/features/lime.JPG"-->
                             <!--table class="table table-hover">
                                 <thead class="text-warning">
                                     <th>Importance</th>
