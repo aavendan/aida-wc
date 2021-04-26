@@ -16,7 +16,7 @@
           <div class="col-md-12">
             <mat-sidenav-container class="example-container" (backdropClick)="close()">
                 <!-- [fixedInViewport]="true" -->
-                <mat-sidenav #sidenav mode="side" [fixedInViewport]="true" (keydown.escape)="close()" disableClose class="filters-panel">
+                <mat-sidenav #sidenav mode="side" [fixedInViewport]="false" (keydown.escape)="close()" disableClose class="filters-panel">
                     <p class="text-right"><button mat-raised-button (click)="close()">Close</button></p>
                     
                     <mat-accordion>
