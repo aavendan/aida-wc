@@ -343,7 +343,7 @@ export class TableListComponent implements OnInit {
   }
 
   dashboard() {
-    this.router.navigateByUrl('/dashboard');
+    this.router.navigateByUrl('/one-question');
   };
 
   clearFilters() {

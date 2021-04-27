@@ -1,5 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-declare var $: any;
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {
+  ChartComponent,
+  ApexAxisChartSeries,
+  ApexChart,
+  ApexFill,
+  ApexXAxis,
+  ApexDataLabels,
+  ApexYAxis,
+  ApexTitleSubtitle
+} from "ng-apexcharts";
+
+export type ChartOptions = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  xaxis: ApexXAxis;
+  yaxis: ApexYAxis;
+  title: ApexTitleSubtitle;
+  fill: ApexFill;
+  dataLabels: ApexDataLabels;
+};
+
 @Component({
   selector: 'app-notifications',
   templateUrl: './notifications.component.html',
@@ -7,36 +27,81 @@ declare var $: any;
 })
 export class NotificationsComponent implements OnInit {
 
-  constructor() { }
-  showNotification(from, align){
-      const type = ['','info','success','warning','danger'];
+  @ViewChild("chart") chart: ChartComponent;
+  public chartOptions: Partial<ChartOptions>;
 
-      const color = Math.floor((Math.random() * 4) + 1);
-
-      $.notify({
-          icon: "notifications",
-          message: "Welcome to <b>Material Dashboard</b> - a beautiful freebie for every web developer."
-
-      },{
-          type: type[color],
-          timer: 4000,
-          placement: {
-              from: from,
-              align: align
-          },
-          template: '<div data-notify="container" class="col-xl-4 col-lg-4 col-11 col-sm-4 col-md-4 alert alert-{0} alert-with-icon" role="alert">' +
-            '<button mat-button  type="button" aria-hidden="true" class="close mat-button" data-notify="dismiss">  <i class="material-icons">close</i></button>' +
-            '<i class="material-icons" data-notify="icon">notifications</i> ' +
-            '<span data-notify="title">{1}</span> ' +
-            '<span data-notify="message">{2}</span>' +
-            '<div class="progress" data-notify="progressbar">' +
-              '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
-            '</div>' +
-            '<a href="{3}" target="{4}" data-notify="url"></a>' +
-          '</div>'
-      });
+  constructor() { 
+    this.chartOptions = {
+      series: [
+        {
+          name: "Remember",
+          data: this.generateData(new Date("11 Feb 2017 GMT").getTime(), 20, {
+            min: 10,
+            max: 60
+          })
+        },
+        {
+          name: "Understand",
+          data: this.generateData(new Date("11 Feb 2017 GMT").getTime(), 20, {
+            min: 10,
+            max: 60
+          })
+        },
+        {
+          name: "Apply",
+          data: this.generateData(new Date("11 Feb 2017 GMT").getTime(), 20, {
+            min: 10,
+            max: 60
+          })
+        },
+        {
+          name: "Analyze",
+          data: this.generateData(new Date("11 Feb 2017 GMT").getTime(), 20, {
+            min: 10,
+            max: 60
+          })
+        }
+      ],
+      chart: {
+        height: 350,
+        type: "bubble"
+      },
+      dataLabels: {
+        enabled: false
+      },
+      fill: {
+        opacity: 0.8
+      },
+      title: {
+        text: "Simple Bubble Chart"
+      },
+      xaxis: {
+        tickAmount: 12,
+        type: "category"
+      },
+      yaxis: {
+        max: 70
+      }
+    };
   }
+ 
   ngOnInit() {
+  }
+
+  public generateData(baseval, count, yrange) {
+    var i = 0;
+    var series = [];
+    while (i < count) {
+      var x = Math.floor(Math.random() * (750 - 1 + 1)) + 1;
+      var y =
+        Math.floor(Math.random() * (yrange.max - yrange.min + 1)) + yrange.min;
+      var z = Math.floor(Math.random() * (75 - 15 + 1)) + 15;
+
+      series.push([x, y, z]);
+      baseval += 86400000;
+      i++;
+    }
+    return series;
   }
 
 }

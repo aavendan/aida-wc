@@ -108,7 +108,7 @@
                                         <mat-option value="Unit 5">Unit 5</mat-option>
                                         <mat-option value="Unit 6">Unit 6</mat-option>
                                         <mat-option value="Unit 7">Unit 7</mat-option>
-                                </mat-select>
+                                    </mat-select>
                                 </mat-form-field>
                         </mat-expansion-panel>
                     </mat-accordion>
@@ -124,11 +124,50 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <p class="col-md-9">
-                                    <button mat-raised-button (click)="sidenav.open()">Filters</button>
+                                <p class="col-md-3 border-right">
+                                    <mat-label>Bloom Taxonomy</mat-label>
+                                    <mat-form-field appearance="fill">
+                                        <mat-select class="selector" (selectionChange)="onChangeValues()"  [(value)]="selectedTax">
+                                            <mat-option value="All">All</mat-option>
+                                            <mat-option value="Remember">Remember</mat-option>
+                                            <mat-option value="Understand">Understand</mat-option>
+                                            <mat-option value="Apply">Apply</mat-option>
+                                            <mat-option value="Analyze">Analyze</mat-option>
+                                            <mat-option value="Evaluate">Evaluate</mat-option>
+                                            <mat-option value="Create">Create</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </p>
+                                <p class="col-md-3 border-right">
+                                    <mat-label>Reading time (sec)</mat-label>
+                                    <ngx-slider 
+                                        [(value)]="minValue" 
+                                        [(highValue)]="maxValue" 
+                                        [options]="options"
+                                        (valueChange)="onChangeValues()"
+                                        (highValueChange)="onChangeValues()">
+                                    </ngx-slider>
+                                </p>
+                                <p class="col-md-3 border-right">
+                                    <mat-label>Unit</mat-label>
+                                    <mat-form-field appearance="fill">
+                                        <mat-select class="selector" (selectionChange)="onChangeValues()" [(value)]="selectedUnit">
+                                            <mat-option value="All">All</mat-option>
+                                            <mat-option value="Unit 1">Unit 1</mat-option>
+                                            <mat-option value="Unit 2">Unit 2</mat-option>
+                                            <mat-option value="Unit 3">Unit 3</mat-option>
+                                            <mat-option value="Unit 4">Unit 4</mat-option>
+                                            <mat-option value="Unit 5">Unit 5</mat-option>
+                                            <mat-option value="Unit 6">Unit 6</mat-option>
+                                            <mat-option value="Unit 7">Unit 7</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </p>
+                                <p class="col-md-3 text-right pr-3 pt-4">
+                                    <!--button mat-raised-button (click)="sidenav.open()">Filters</button-->
                                     <button mat-raised-button class="ml-2" (click)="clearFilters()">Reset Filters</button>
                                 </p>
-                                <p class="col-md-3">
+                                <!--p class="col-md-3">
                                     <mat-form-field appearance="fill">
                                         <mat-label>Order</mat-label>
                                         <mat-select class="selector" (selectionChange)="onChange($event)" [(value)]="order">
@@ -136,9 +175,7 @@
                                             <mat-option value="feature">Feature Importance</mat-option>
                                         </mat-select>
                                     </mat-form-field>
-                                    <!--button mat-raised-button (click)="default()"> Default </button>
-                                    <button mat-raised-button (click)="importance()" class="ml-2"> Feature Importance </button-->
-                                </p>
+                                </p-->
                             </div>
                             <div class="table-responsive">
                                 <div class="scale float-right pb-3 d-flex flex-row" *ngIf="status == 1">

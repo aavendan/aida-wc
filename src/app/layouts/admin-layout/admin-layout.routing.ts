@@ -56,8 +56,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'user-settings',   component: UserProfileComponent },
     { path: 'suggested-questions',     component: TableListComponent },
     { path: 'others-questions',     component: TypographyComponent },
+    { path: 'suggested-questions2',  component: NotificationsComponent },
+    
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
-    { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
 ];
