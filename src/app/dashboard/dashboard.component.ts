@@ -107,7 +107,7 @@ export class DashboardComponent implements OnInit {
   ]
 
   @ViewChild("chart") chart: ChartComponent;
-  public chartOptionsShapImportance: Partial<ChartOptionsShapImportance>;
+  public chartOptionsBloomTaxonomy: Partial<ChartOptionsShapImportance>;
 
   @ViewChild("chart") chart2: ChartComponent;
   public chartOptionsLines: Partial<chartOptionsLines>;
@@ -119,7 +119,7 @@ export class DashboardComponent implements OnInit {
   selectedDescription: string = this.featureList[0]['description'];
 
   constructor() { 
-    this.chartOptionsShapImportance = {
+    this.chartOptionsBloomTaxonomy = {
       series: [
         {
           name: "count",
@@ -266,7 +266,7 @@ export class DashboardComponent implements OnInit {
             x: 140.0, 
             x2: 145.0,
             strokeDashArray: 2,
-            fillColor: '#000000',
+            fillColor: '#5af48d',
             label: {
               text: "Reading time' Question"
             }
